@@ -1,0 +1,107 @@
+/* Importa a fonte do Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Supermercado+One&display=swap");
+
+/* Reset básico: remove margens/paddings padrão e ajusta o cálculo de tamanho dos elementos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Configura o corpo da página */
+body {
+  background-color: #050a19; /* Cor de fundo escura */
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  height: 100vh; /* Ocupa 100% da altura da tela */
+  color: #2058ff; /* Cor azul do relógio */
+  font-family: "Supermercado One", sans-serif;
+  text-align: center;
+  overflow: hidden; /* Esconde barras de rolagem */
+}
+
+/* Área que envolve o relógio e a data */
+.container {
+  user-select: none; /* Impede que o usuário selecione o texto do relógio */
+  width: 100%;
+  cursor: default; /* Por padrão, o mouse é a seta normal */
+}
+
+/* Estilo do número do relógio para telas grandes */
+.clock {
+  color: #2058ff;
+  font-size: 20rem; /* Ajustado para não estourar a tela do notebook */
+}
+
+/* Estilo da data */
+.date {
+  font-size: 3rem;
+  margin-top: -20px; /* Sobe um pouco a data para aproximar do relógio */
+  color: #fff; /* Data em branco */
+  text-transform: capitalize; /* Primeira letra de cada palavra em maiúsculo */
+}
+
+/* Rodapé (Footer) fixado no fundo */
+footer {
+  position: fixed;
+  bottom: 20px; /* Distância de 20px do fundo */
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Centraliza o conteúdo do footer */
+  align-items: center;
+  pointer-events: none; /* O clique passa direto pelo footer (não bloqueia o fundo) */
+}
+
+/* Link dentro do footer */
+footer a {
+  pointer-events: auto; /* Deixa apenas o link ser clicável novamente */
+  color: rgba(255, 255, 255, 0.5); /* Branco com 50% de transparência */
+  text-decoration: none; /* Remove o sublinhado */
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espaço entre o ícone e o texto */
+  transition: 0.3s; /* Suaviza a mudança de cor no hover */
+}
+
+/* Efeito ao passar o mouse no nome/ícone */
+footer a:hover {
+  color: #dfdfdf;
+}
+
+/* Ícone do GitHub */
+footer img {
+  width: 18px;
+  height: 18px;
+  filter: invert(1); /* Inverte a cor de preto para branco */
+}
+
+/* Configurações para Computadores (Telas acima de 769px) */
+@media (min-width: 769px) {
+  .container {
+    cursor: pointer; /* Só mostra a 'mãozinha' de clique no PC */
+  }
+}
+
+/* Configurações para Celulares e Tablets deitados (até 768px) */
+@media (max-width: 768px) {
+  .clock {
+    font-size: 7rem; /* Reduz o tamanho do relógio */
+  }
+  .date {
+    font-size: 1.8rem;
+    margin-top: 0; /* Remove o ajuste negativo para não embolar */
+  }
+}
+
+/* Configurações para Celulares pequenos em pé (até 380px) */
+@media (max-width: 380px) {
+  .clock {
+    font-size: 4.5rem; /* Relógio menor para caber em telas estreitas */
+  }
+  .date {
+    font-size: 1.2rem;
+  }
+}
